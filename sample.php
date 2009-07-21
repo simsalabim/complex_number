@@ -28,9 +28,12 @@
 	echo '2 number inversion: ' . $numbers[1]->invert() . $lf;
 	
 	echo '4 number + (6-8i): ' . ComplexNumber::add($numbers[3], '6-8i') . $lf;
+	echo '4 number + (13+2i): ' . $numbers[3]->add('13+2i') . $lf;
 	
 	echo 'is 5 number real: ' . ComplexNumber::isReal($numbers[4]) . $lf;
 	echo 'is 3 number imaginary(not real): ' . ComplexNumber::isImaginary($numbers[2]) . $lf;
 	echo 'is 7 number real: ' . $numbers[6]->isReal() . $lf;
+	
+	foreach($numbers as $number) $number = null;
 	
 ?>
