@@ -44,7 +44,7 @@ class ComplexNumber
 	}
 	
 	public function recognize($number){
-		if($number instanceof ComplexNumber) return $number;
+		if($number instanceof self) return $number;
 		return new ComplexNumber(self::units($number));
 	}
 	
@@ -67,7 +67,7 @@ class ComplexNumber
 	}
 	
 	protected function mask(){
-		return '/([+|-]?[\d]*)([+|-]?[\d])*[' . self::$imaginary_sign . ']?/';
+		return '/([+|-]?\d*)?([+|-]?\d*' . self::$imaginary_sign . ')?/';
 	}
 }
 

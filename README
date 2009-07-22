@@ -1,1 +1,2 @@
-This is not a math unit, just sample complex number class. All abilities are shown in non-interactive sample.php script. Seems it's pretty clear to describe anything else, just watch ;)
+This is just sample complex number class having 'add' & ;subtract' as main math ops. Main feature is different ways of these methods calls and complex number recognition.
+All abilities are shown in non-interactive sample.php script. Seems it's pretty clear to describe anything else, just see ;)

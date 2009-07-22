@@ -10,7 +10,9 @@
 					new ComplexNumber('4+5i'),
 					new ComplexNumber(array(5,1)),
 					new ComplexNumber('-5-1i'),
-					new ComplexNumber('7+0i')
+					new ComplexNumber('7+0i'),
+					new ComplexNumber('18'),
+					new ComplexNumber('')
 	);
 
 	foreach($numbers as $key => $number){
@@ -31,6 +33,8 @@
 	echo '4 number + (13+2i): ' . $numbers[3]->add('13+2i') . $lf;
 	
 	echo 'is 5 number real: ' . ComplexNumber::isReal($numbers[4]) . $lf;
+	echo 'is (3+7i) real: ' . ComplexNumber::isReal('3+7i') . $lf;
+	echo 'is (3) real: ' . ComplexNumber::isReal('3') . $lf;
 	echo 'is 3 number imaginary(not real): ' . ComplexNumber::isImaginary($numbers[2]) . $lf;
 	echo 'is 7 number real: ' . $numbers[6]->isReal() . $lf;
 	
