@@ -8,13 +8,13 @@ class ComplexNumber
 	public function __construct($real_unit = 0, $imaginary_unit = 0) {
 		if(is_string($real_unit)) list($real_unit, $imaginary_unit) = self::units($real_unit);
 		if(is_array($real_unit)) list($real_unit, $imaginary_unit) = $real_unit;
-		return $this->set(array('real_unit' => (int) $real_unit, 'imaginary_unit' => (int) $imaginary_unit));
+		return $this->set(array('real_unit' => $real_unit, 'imaginary_unit' => $imaginary_unit));
 	}
 	
 	public function set($attribute = null, $value = null){
-		if(!is_array($attribute)) eval("return \$this->" . $attribute . " = \$value;");
+		if(!is_array($attribute)) return $this->$attribute = $value;
 		foreach($attribute as $field => $value) {
-			eval("\$this->" . $field . " = \$value;");
+			$this->$field = $value;
 		}
 		return true;
 	}
@@ -49,7 +49,7 @@ class ComplexNumber
 	}
 	
 	public function units($string){
-		if(preg_match(self::mask(), $string, $matches)) return array($matches[1], $matches[2]);
+		if(preg_match(self::mask(), $string, $matches)) return array((int)$matches[1], (int)$matches[2]);
 		return false;
 	}
 
