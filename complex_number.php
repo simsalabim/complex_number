@@ -24,7 +24,7 @@ class ComplexNumber
 	}
 	
 	public function add($first = null, $second = null, $subtract = false){
-		if($this) {
+		if($first instanceof self && is_null($second)) {
 			$second = $first;
 			$first = $this;
 		}
@@ -49,7 +49,7 @@ class ComplexNumber
 	}
 	
 	public function units($string){
-		if(preg_match(self::mask(), $string, $matches)) return array((int)$matches[1], (int)$matches[2]);
+		if(preg_match(self::mask(), $string, $matches)) return array(isset($matches[1]) ? (double) $matches[1] : 0, isset($matches[2]) ? (double) $matches[2] : 0);
 		return false;
 	}
 
@@ -67,7 +67,7 @@ class ComplexNumber
 	}
 	
 	protected function mask(){
-		return '/([+|-]?\d*)?([+|-]?\d*' . self::$imaginary_sign . ')?/';
+		return '/([+|-]?\d*\.?\d*)?([+|-]?\d*\.?\d*' . self::$imaginary_sign . ')?/';
 	}
 }
 

@@ -1,4 +1,5 @@
 <?php 
+	error_reporting(E_ALL);
 	require_once 'complex_number.php';
 	
 	$lf = "\n"; // $lf = '<br />';
@@ -12,7 +13,9 @@
 					new ComplexNumber('-5-1i'),
 					new ComplexNumber('7+0i'),
 					new ComplexNumber('18'),
-					new ComplexNumber('')
+					new ComplexNumber(''),
+					new ComplexNumber('5.5+1.5i'),
+					new ComplexNumber(-5.5, -1.5),
 	);
 
 	foreach($numbers as $key => $number){
@@ -37,6 +40,8 @@
 	echo 'is (3) real: ' . ComplexNumber::isReal('3') . $lf;
 	echo 'is 3 number imaginary(not real): ' . ComplexNumber::isImaginary($numbers[2]) . $lf;
 	echo 'is 7 number real: ' . $numbers[6]->isReal() . $lf;
+	
+	echo '10 number + 11 number: ' . ComplexNumber::add($numbers[9], $numbers[10]) . $lf;
 	
 	foreach($numbers as $number) $number = null;
 	
